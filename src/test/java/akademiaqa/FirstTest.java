@@ -1,8 +1,10 @@
-package pl.akademiaqa;
+package akademiaqa;
+        import common.BaseTest;
         import org.assertj.core.api.Assertions;
         import org.junit.jupiter.api.Test;
 
-        class FirstTest extends BaseTest {       //public class (class available in the package
+
+class FirstTest extends BaseTest {       //public class (class available in the package
 
 @Test
 void should_return_correct_page_title() {

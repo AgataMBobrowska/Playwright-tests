@@ -1,4 +1,4 @@
-package pl.akademiaqa;
+package common;
 
 import com.microsoft.playwright.*;
 import org.junit.jupiter.api.AfterAll;

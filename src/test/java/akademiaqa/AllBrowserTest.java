@@ -1,11 +1,11 @@
-package pl.akademiaqa;
+package akademiaqa;
 
 import com.microsoft.playwright.Page;
+import common.BaseTest;
 import org.junit.jupiter.api.Test;
-
 import java.nio.file.Paths;
 
- class AllBrowserTest extends BaseTest{         //public class
+class AllBrowserTest extends BaseTest {         //public class
 
     @Test
     void should_open_supported_browsers_chromium() {

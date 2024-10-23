@@ -1,11 +1,10 @@
-package pl.akademiaqa;
+package akademiaqa;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import org.junit.jupiter.api.Test;
-
 import java.nio.file.Paths;
 import java.util.List;
 
