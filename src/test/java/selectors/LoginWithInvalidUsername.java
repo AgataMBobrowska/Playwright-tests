@@ -15,7 +15,7 @@ public class LoginWithInvalidUsername extends BaseTest {
         page.getByLabel("Username").fill("jankowalski");
         page.getByLabel("Password").click();
         page.getByLabel("Password").fill("SuperSecretPassword!");
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(" Login")).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();
         PlaywrightAssertions.assertThat(page.getByText("Your username is invalid!"));
      }
 }

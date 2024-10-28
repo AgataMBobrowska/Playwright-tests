@@ -15,7 +15,7 @@ public class LoginWithInvalidPassword extends BaseTest {
         page.getByLabel("Username").fill("tomsmith");
         page.getByLabel("Password").click();
         page.getByLabel("Password").fill("Password!");
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(" Login")).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();
         PlaywrightAssertions.assertThat(page.getByText("Your password is invalid!")).isVisible();
     }
 }
