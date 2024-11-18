@@ -4,7 +4,6 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.options.AriaRole;
 import common.BaseTest;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
