@@ -11,6 +11,5 @@ public class shadowDOMTest extends BaseTest {
     void shadowDOMTest() {
         page.navigate("https://the-internet.herokuapp.com/shadowdom");
         System.out.println(page.locator("span[slot=my-text]").innerText());
-
     }
 }
