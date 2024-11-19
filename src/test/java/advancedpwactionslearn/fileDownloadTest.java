@@ -3,7 +3,6 @@ package advancedpwactionslearn;
 import com.microsoft.playwright.Download;
 import common.BaseTest;
 import org.junit.jupiter.api.Test;
-
 import java.nio.file.Paths;
 
 public class fileDownloadTest extends BaseTest {
