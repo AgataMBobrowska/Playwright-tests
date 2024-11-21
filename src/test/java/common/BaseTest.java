@@ -27,17 +27,25 @@ public class BaseTest {
 
     @BeforeEach
     void beforeEach() {
-     //   context = browser.newContext();
+        context = browser.newContext();
 
-        context = browser.newContext(new Browser.NewContextOptions()
-                .setViewportSize(1920, 1080)
-                .setRecordVideoDir(Paths.get("videos/"))
-                .setRecordVideoSize(new RecordVideoSize(1920, 1080)));
+        //Start tracing
+        context.tracing().start(new Tracing.StartOptions()
+                .setScreenshots(true)
+                .setSnapshots(true)
+                .setSources(true)
+        );
+
+//        context = browser.newContext(new Browser.NewContextOptions()
+//                .setViewportSize(1920, 1080)
+//                .setRecordVideoDir(Paths.get("videos/"))
+//                .setRecordVideoSize(new RecordVideoSize(1920, 1080)));
         page = context.newPage();
     }
 
     @AfterEach()
     void afterEach() {
+        context.tracing().stop(new Tracing.StopOptions().setPath(Paths.get("traces/trace.zip")));
         context.close();
     }
 
