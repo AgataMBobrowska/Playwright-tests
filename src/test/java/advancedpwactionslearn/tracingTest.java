@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 
 public class tracingTest extends BaseTest {
 
+
+    // mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args=”show-trace traces/trace.zip”
+
     @Test
     void tracingTest() {
         page.navigate("https://the-internet.herokuapp.com/");
@@ -14,5 +17,7 @@ public class tracingTest extends BaseTest {
         page.fill("#username", "jannowak");
         page.fill("#password", "password123");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();
+
+        //after test: go to https://trace.playwright.dev/ and load trace files
     }
 }
