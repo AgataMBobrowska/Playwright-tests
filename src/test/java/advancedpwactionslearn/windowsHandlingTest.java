@@ -24,7 +24,7 @@ public class windowsHandlingTest extends BaseTest {
         Page page1 = browserContext1.newPage();
 
         page1.navigate("http://www.automationpractice.pl/index.php");
-        page1.locator("a[title=Women").click();
+        page1.locator("a[title=Women]").click();
 
         page.waitForTimeout(5000);
     }
