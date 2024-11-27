@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class tracingTest extends BaseTest {
 
 
-    // mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args=”show-trace traces/trace.zip”
+    //local tracing: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args=”show-trace traces/trace.zip”
 
     @Test
     void tracingTest() {

@@ -26,7 +26,11 @@ public class BaseTest {
 
     @BeforeEach
     void beforeEach() {
-        context = browser.newContext();
+       // context = browser.newContext();
+
+        // Basic auth
+        context = browser.newContext(new Browser.NewContextOptions()
+                .setHttpCredentials("admin", "admin"));
 
         //Start tracing
         context.tracing().start(new Tracing.StartOptions()
