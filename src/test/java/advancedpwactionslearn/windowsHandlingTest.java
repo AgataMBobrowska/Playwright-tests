@@ -11,7 +11,7 @@ public class windowsHandlingTest extends BaseTest {
     private Browser browser = pw.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1000));
 
     @Test
-    void should_open_multiple_browsers() {
+    void should_open_multiple_windows() {
         BrowserContext browserContext = browser.newContext();
         Page page = browserContext.newPage();
 
