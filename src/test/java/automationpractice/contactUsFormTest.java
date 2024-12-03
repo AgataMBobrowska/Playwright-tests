@@ -31,5 +31,6 @@ public class contactUsFormTest extends BaseTest {
         page.locator("textarea[class='form-control']").fill("Test message");
         page.locator("#submitMessage").click();
         assertThat(page.getByText("Your message has been successfully sent to our team.")).isVisible();
+        page.locator("#center_column").screenshot(new Locator.ScreenshotOptions().setPath(Paths.get("screenshots/proper-credentials")));
     }
 }
