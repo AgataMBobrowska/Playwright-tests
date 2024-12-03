@@ -1,27 +1,19 @@
 package pageobjectpattern.pages;
 
-import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.Getter;
+import pageobjectpattern.pages.sections.ContactUsFormSection;
+
 
 public class ContactUsPage {
 
     private Page page;
 
-    private Locator sendButton;
-
     @Getter
-    private Locator errorMessage;
+    private ContactUsFormSection contactUsFormSection;
 
     public ContactUsPage(Page page) {
         this.page = page;
-        this.sendButton = page.locator("#submitMessage");
-        this.errorMessage = page.getByText("Invalid email address.");
+        this.contactUsFormSection = new ContactUsFormSection(page);
     }
-
-    public void clickSendButton() {
-        sendButton.click();
-    }
-
-
 }
