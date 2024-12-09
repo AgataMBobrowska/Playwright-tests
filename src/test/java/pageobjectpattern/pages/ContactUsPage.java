@@ -7,13 +7,10 @@ import pageobjectpattern.pages.sections.ContactUsFormSection;
 
 public class ContactUsPage {
 
-    private Page page;
-
     @Getter
     private ContactUsFormSection contactUsFormSection;
 
     public ContactUsPage(Page page) {
-        this.page = page;
         this.contactUsFormSection = new ContactUsFormSection(page);
     }
 }
