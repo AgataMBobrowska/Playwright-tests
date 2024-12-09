@@ -12,9 +12,8 @@ public class SendContactUsFormTest extends BaseTest {
     void should_show_error_while_sending_empty_form_test() {
         page.navigate("http://www.automationpractice.pl/index.php");
         HomePage homePage = new HomePage(page);
-        ContactUsPage contactUsPage = new ContactUsPage(page);
 
-        homePage.getTopMenuSection().clickContactUsLink();
+        ContactUsPage contactUsPage = homePage.getTopMenuSection().clickContactUsLink();
         contactUsPage.getContactUsFormSection().clickSendButton();
         assertThat(contactUsPage.getContactUsFormSection().getErrorMessage()).isVisible();
     }
