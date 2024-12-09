@@ -1,6 +1,7 @@
 package pageobjectpattern;
 
 import common.BaseTest;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pageobjectpattern.pages.ContactUsPage;
 import pageobjectpattern.pages.HomePage;
@@ -8,13 +9,33 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 public class SendContactUsFormTest extends BaseTest {
 
+    private HomePage homePage;
+
+    @BeforeEach
+    void beforeEach() {
+        homePage = new HomePage(page);
+        page.navigate("http://www.automationpractice.pl/index.php");
+    }
+
     @Test
     void should_show_error_while_sending_empty_form_test() {
-        page.navigate("http://www.automationpractice.pl/index.php");
-        HomePage homePage = new HomePage(page);
 
         ContactUsPage contactUsPage = homePage.getTopMenuSection().clickContactUsLink();
         contactUsPage.getContactUsFormSection().clickSendButton();
         assertThat(contactUsPage.getContactUsFormSection().getErrorMessage()).isVisible();
+    }
+
+    @Test
+    void should_fill_and_send_contact_us_form_test() {
+        ContactUsPage contactUsPage = homePage.getTopMenuSection().clickContactUsLink();
+
+        contactUsPage.getContactUsFormSection().selectSubjectHeading("Webmaster");
+        contactUsPage.getContactUsFormSection().enterEmailAddress("demo@demo.com");
+        contactUsPage.getContactUsFormSection().enterOrderReference("12345");
+        contactUsPage.getContactUsFormSection().selectFileToUpload("uploads/upload_text.txt");
+        contactUsPage.getContactUsFormSection().enterMessage("Sample message");
+        contactUsPage.getContactUsFormSection().clickSendButton();
+        assertThat(contactUsPage.getContactUsFormSection().getConfirmationMessage()).isVisible();
+
     }
 }

@@ -25,7 +25,7 @@ public class BaseTest {
     }
 
     @BeforeEach
-    void beforeEach() {
+    void beforeEachBase() {
        // context = browser.newContext();
 
         // Basic auth
