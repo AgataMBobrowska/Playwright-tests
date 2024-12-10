@@ -4,7 +4,6 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.Getter;
 import pageobjectpattern.pages.BasePage;
-
 import java.nio.file.Paths;
 
 @Getter
