@@ -3,8 +3,11 @@ package pageobjectpattern.pages.sections;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.Getter;
+import pageobjectpattern.SendContactUsFormTest;
 import pageobjectpattern.pages.BasePage;
 import java.nio.file.Paths;
+
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 @Getter
 public class ContactUsFormSection extends BasePage {
@@ -43,30 +46,38 @@ public class ContactUsFormSection extends BasePage {
         return this;
     }
 
-    public ContactUsFormSection selectSubjectHeading(String option) {
+    private ContactUsFormSection selectSubjectHeading(String option) {
         subjectHeading.selectOption(option);
         return this;
     }
 
-    public ContactUsFormSection enterEmailAddress(String email) {
+    private ContactUsFormSection enterEmailAddress(String email) {
         emailAddressInput.fill(email);
         return this;
     }
 
-    public ContactUsFormSection enterOrderReference(String orderReference) {
+    private ContactUsFormSection enterOrderReference(String orderReference) {
         orderReferenceInput.fill(orderReference);
         return this;
     }
 
-    public ContactUsFormSection selectFileToUpload(String filePath) {
+    private ContactUsFormSection selectFileToUpload(String filePath) {
         fileUploadInput.setInputFiles(Paths.get(filePath));
         return this;
     }
 
-    public ContactUsFormSection enterMessage(String message) {
+    private ContactUsFormSection enterMessage(String message) {
         messageText.fill(message);
         return this;
     }
 
-
+    public ContactUsFormSection sendContactUsForm() {
+        selectSubjectHeading("Webmaster")
+                .enterEmailAddress("demo@demo.com")
+                .enterOrderReference("12345")
+                .selectFileToUpload("uploads/upload_text.txt")
+                .enterMessage("Sample message")
+                .clickSendButton();
+        return this;
+    }
 }
