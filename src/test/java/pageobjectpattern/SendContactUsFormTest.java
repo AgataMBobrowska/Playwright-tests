@@ -29,12 +29,12 @@ public class SendContactUsFormTest extends BaseTest {
     void should_fill_and_send_contact_us_form_test() {
         ContactUsPage contactUsPage = homePage.getTopMenuSection().clickContactUsLink();
 
-        contactUsPage.getContactUsFormSection().selectSubjectHeading("Webmaster");
-        contactUsPage.getContactUsFormSection().enterEmailAddress("demo@demo.com");
-        contactUsPage.getContactUsFormSection().enterOrderReference("12345");
-        contactUsPage.getContactUsFormSection().selectFileToUpload("uploads/upload_text.txt");
-        contactUsPage.getContactUsFormSection().enterMessage("Sample message");
-        contactUsPage.getContactUsFormSection().clickSendButton();
+        contactUsPage.getContactUsFormSection().selectSubjectHeading("Webmaster")
+        .enterEmailAddress("demo@demo.com")
+        .enterOrderReference("12345")
+        .selectFileToUpload("uploads/upload_text.txt")
+        .enterMessage("Sample message")
+        .clickSendButton();
         assertThat(contactUsPage.getContactUsFormSection().getConfirmationMessage()).isVisible();
 
     }
