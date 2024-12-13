@@ -4,6 +4,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.Getter;
 import pageobjectpattern.SendContactUsFormTest;
+import pageobjectpattern.dto.ContactUsDTO;
 import pageobjectpattern.pages.BasePage;
 import java.nio.file.Paths;
 
@@ -71,12 +72,12 @@ public class ContactUsFormSection extends BasePage {
         return this;
     }
 
-    public ContactUsFormSection sendContactUsForm() {
-        selectSubjectHeading("Webmaster")
-                .enterEmailAddress("demo@demo.com")
-                .enterOrderReference("12345")
-                .selectFileToUpload("uploads/upload_text.txt")
-                .enterMessage("Sample message")
+    public ContactUsFormSection sendContactUsForm(ContactUsDTO contactUsDTO) {
+        selectSubjectHeading(contactUsDTO.getSubjectHeading())
+                .enterEmailAddress(contactUsDTO.getEmailAddress())
+                .enterOrderReference(contactUsDTO.getOrderReference())
+                .selectFileToUpload(contactUsDTO.getFileToUpload())
+                .enterMessage(contactUsDTO.getMessage())
                 .clickSendButton();
         return this;
     }

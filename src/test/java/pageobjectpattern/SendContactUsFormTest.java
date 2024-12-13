@@ -3,6 +3,7 @@ package pageobjectpattern;
 import common.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pageobjectpattern.dto.ContactUsDTO;
 import pageobjectpattern.pages.ContactUsPage;
 import pageobjectpattern.pages.HomePage;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -28,9 +29,7 @@ public class SendContactUsFormTest extends BaseTest {
     @Test
     void should_fill_and_send_contact_us_form_test() {
         ContactUsPage contactUsPage = homePage.getTopMenuSection().clickContactUsLink();
-
-        contactUsPage.getContactUsFormSection().sendContactUsForm();
-
+        contactUsPage.getContactUsFormSection().sendContactUsForm(ContactUsDTO.getDefaultContactUsDTO());
         assertThat(contactUsPage.getContactUsFormSection().getConfirmationMessage()).isVisible();
 
     }
