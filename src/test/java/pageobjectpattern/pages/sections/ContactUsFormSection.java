@@ -3,12 +3,10 @@ package pageobjectpattern.pages.sections;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.Getter;
-import pageobjectpattern.SendContactUsFormTest;
 import pageobjectpattern.dto.ContactUsDTO;
 import pageobjectpattern.pages.BasePage;
 import java.nio.file.Paths;
 
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 @Getter
 public class ContactUsFormSection extends BasePage {

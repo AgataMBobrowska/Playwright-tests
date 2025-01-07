@@ -31,6 +31,5 @@ public class SendContactUsFormTest extends BaseTest {
         ContactUsPage contactUsPage = homePage.getTopMenuSection().clickContactUsLink();
         contactUsPage.getContactUsFormSection().sendContactUsForm(ContactUsDTO.getDefaultContactUsDTO());
         assertThat(contactUsPage.getContactUsFormSection().getConfirmationMessage()).isVisible();
-
     }
 }
