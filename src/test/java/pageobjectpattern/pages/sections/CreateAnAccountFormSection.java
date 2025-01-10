@@ -8,7 +8,13 @@ import pageobjectpattern.pages.BasePage;
 @Getter
 public class CreateAnAccountFormSection extends BasePage {
 
-    private Locator title;
+    private Locator emailInput;
+
+    private Locator createAnAccountButton;
+
+    private Locator titleMr;
+
+    private Locator titleMrs;
 
     private Locator firstName;
 
@@ -28,7 +34,10 @@ public class CreateAnAccountFormSection extends BasePage {
 
     public  CreateAnAccountFormSection(Page page) {
         super(page);
-        this.title = page.locator("input[id='id_gender1']");
+        this.emailInput = page.locator("input[id='email_create']")
+        this.createAnAccountButton = page.locator("button[id='SubmitCreate']")
+        this.titleMr = page.locator("input[id='id_gender1']");
+        this.titleMrs = page.locator("input[id='id_gender2']");
         this.firstName = page.getByText("First name");          //div[class='required form-group form-error']
         this.lastName = page.getByText("Last name");
         this.password = page.locator("input[type='password']");
@@ -40,8 +49,8 @@ public class CreateAnAccountFormSection extends BasePage {
 
     }
 
-    public CreateAnAccountFormSection clickTitle() {
-        title.click();
+    public CreateAnAccountFormSection enterEmail(String email) {
+        emailInput.(email);
         return this;
     }
 

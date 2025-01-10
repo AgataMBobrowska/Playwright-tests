@@ -3,6 +3,7 @@ package pageobjectpattern;
 import common.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pageobjectpattern.pages.CreateAnAccountPage;
 import pageobjectpattern.pages.HomePage;
 
 public class CreateAnAccountTest extends BaseTest {
@@ -21,6 +22,11 @@ public class CreateAnAccountTest extends BaseTest {
 
     @Test
     void should_create_an_account_test() {
+        CreateAnAccountPage createAnAccountPage = homePage.getTopMenuSection().clickSignInLink();
+
+        createAnAccountPage.getCreateAnAccountFormSection()
+                .enterEmail("demo234567@demo.com")
+                .clickCreateAnAccountButton()
 
     }
 }

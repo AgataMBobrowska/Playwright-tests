@@ -20,6 +20,4 @@ public class CreateAnAccountDTO {
                 .password("1234567")
                 .build();
     }
-
-
 }
