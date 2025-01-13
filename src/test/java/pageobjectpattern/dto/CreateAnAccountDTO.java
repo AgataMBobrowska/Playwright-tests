@@ -7,17 +7,17 @@ import lombok.Getter;
 @Getter
 public class CreateAnAccountDTO {
 
-    private String firstName;
+    private String firstNameText;
 
-    private String lastName;
+    private String lastNameText;
 
-    private String password;
+    private String passwordText;
 
     public static CreateAnAccountDTO getDefaultCreateAnAccountDTO() {
         return CreateAnAccountDTO.builder()
-                .firstName("Mary")
-                .lastName("Green")
-                .password("1234567")
+                .firstNameText("Gary")
+                .lastNameText("Black")
+                .passwordText("1234567")
                 .build();
     }
 }

@@ -5,6 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pageobjectpattern.pages.CreateAnAccountPage;
 import pageobjectpattern.pages.HomePage;
+import pageobjectpattern.pages.MyAccountPage;
+
+import static org.assertj.core.api.FactoryBasedNavigableListAssert.assertThat;
 
 public class CreateAnAccountTest extends BaseTest {
 
@@ -26,7 +29,18 @@ public class CreateAnAccountTest extends BaseTest {
 
         createAnAccountPage.getCreateAnAccountFormSection()
                 .enterEmail("demo234567@demo.com")
-                .clickCreateAnAccountButton()
+                .clickCreateAnAccountButton();
+
+        MyAccountPage myAccountPage = createAnAccountPage.getCreateAnAccountFormSection()
+                .checkTitleMr()
+                .enterFirstName("John")
+                .enterLastName("Harrison")
+                .enterPassword("QWE09876")
+                .enterDateOfBirth("10","08", "1976")
+                .clickRegisterButton();
+
+        assertThat(myAccountPage.getManageMyAccountSection().getAccountCreatedMessage()).isVisible();
+        assertThat(myAccountPage.getManageMyAccountSection().getMyAccountLabel()).hasText("My account");
 
     }
 }

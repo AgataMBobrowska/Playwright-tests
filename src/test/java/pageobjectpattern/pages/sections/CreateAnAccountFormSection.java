@@ -1,11 +1,11 @@
 package pageobjectpattern.pages.sections;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import lombok.Getter;
-import org.xml.sax.Locator;
 import pageobjectpattern.pages.BasePage;
+import pageobjectpattern.pages.MyAccountPage;
 
-@Getter
+
 public class CreateAnAccountFormSection extends BasePage {
 
     private Locator emailInput;
@@ -34,8 +34,8 @@ public class CreateAnAccountFormSection extends BasePage {
 
     public  CreateAnAccountFormSection(Page page) {
         super(page);
-        this.emailInput = page.locator("input[id='email_create']")
-        this.createAnAccountButton = page.locator("button[id='SubmitCreate']")
+        this.emailInput = page.locator("input[id='email_create']");
+        this.createAnAccountButton = page.locator("button[id='SubmitCreate']");
         this.titleMr = page.locator("input[id='id_gender1']");
         this.titleMrs = page.locator("input[id='id_gender2']");
         this.firstName = page.getByText("First name");          //div[class='required form-group form-error']
@@ -46,11 +46,52 @@ public class CreateAnAccountFormSection extends BasePage {
         this.yearOfBirth = page.locator("select[name= 'years']");
         this.signUpForNewsletter = page.locator("input[name='newsletter']");
         this.registerButton = page.locator("button[name='submitAccount']");
-
     }
 
     public CreateAnAccountFormSection enterEmail(String email) {
-        emailInput.(email);
+        emailInput.fill(email);
+        return this;
+    }
+
+    public CreateAnAccountFormSection clickCreateAnAccountButton() {
+        createAnAccountButton.click();
+        return this;
+    }
+
+    public CreateAnAccountFormSection checkTitleMr() {
+        titleMr.check();
+        return this;
+    }
+
+    public CreateAnAccountFormSection checkTileMrs()  {
+        titleMrs.check();
+        return this;
+    }
+
+    public CreateAnAccountFormSection enterFirstName(String firstNameText) {
+        firstName.fill(firstNameText);
+        return this;
+    }
+
+    public CreateAnAccountFormSection enterLastName(String lastNameText) {
+        lastName.fill(lastNameText);
+        return this;
+    }
+
+    public CreateAnAccountFormSection enterPassword(String qwe09876) {
+        password.fill("ABC123456");
+        return this;
+    }
+
+    public CreateAnAccountFormSection enterDateOfBirth(String day, String month, String year) {
+        dayOfBirth.selectOption(day);
+        monthOfBirth.selectOption(month);
+        yearOfBirth.selectOption(year);
+        return this;
+    }
+
+    public MyAccountPage clickRegisterButton() {
+        registerButton.click();
         return this;
     }
 
