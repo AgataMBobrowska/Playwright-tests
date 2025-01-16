@@ -20,7 +20,7 @@ public class CreateAnAccountFormSection extends BasePage {
 
     private Locator lastName;
 
-    private Locator password;
+    private Locator providePassword;
 
     private Locator dayOfBirth;
 
@@ -28,7 +28,7 @@ public class CreateAnAccountFormSection extends BasePage {
 
     private Locator yearOfBirth;
 
-    private Locator signUpForNewsletter;
+ //   private Locator signUpForNewsletter;
 
     private Locator registerButton;
 
@@ -40,11 +40,11 @@ public class CreateAnAccountFormSection extends BasePage {
         this.titleMrs = page.locator("input[id='id_gender2']");
         this.firstName = page.getByText("First name");          //div[class='required form-group form-error']
         this.lastName = page.getByText("Last name");
-        this.password = page.locator("input[type='password']");
-        this.dayOfBirth = page.locator("select[id='days']");
-        this.monthOfBirth  = page.locator("select[name='months']");
-        this.yearOfBirth = page.locator("select[name= 'years']");
-        this.signUpForNewsletter = page.locator("input[name='newsletter']");
+        this.providePassword = page.locator("input[type='password']");
+        this.dayOfBirth = page.locator("#days");
+        this.monthOfBirth  = page.locator("#months");
+        this.yearOfBirth = page.locator("#years");
+ //       this.signUpForNewsletter = page.locator("input[name='newsletter']");
         this.registerButton = page.locator("button[name='submitAccount']");
     }
 
@@ -78,8 +78,8 @@ public class CreateAnAccountFormSection extends BasePage {
         return this;
     }
 
-    public CreateAnAccountFormSection enterPassword(String qwe09876) {
-        password.fill("ABC123456");
+    public CreateAnAccountFormSection enterPassword(String enterPassword) {
+        providePassword.fill(enterPassword);
         return this;
     }
 
@@ -92,7 +92,6 @@ public class CreateAnAccountFormSection extends BasePage {
 
     public MyAccountPage clickRegisterButton() {
         registerButton.click();
-        return this;
+        return new MyAccountPage(page);
     }
-
 }

@@ -1,26 +1,26 @@
 package pageobjectpattern;
 
+import com.github.javafaker.Faker;
 import common.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pageobjectpattern.pages.CreateAnAccountPage;
 import pageobjectpattern.pages.HomePage;
 import pageobjectpattern.pages.MyAccountPage;
-
-import static org.assertj.core.api.FactoryBasedNavigableListAssert.assertThat;
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class CreateAnAccountTest extends BaseTest {
 
     private HomePage homePage;
 
+    private Faker faker;
+
     @BeforeEach
     void beforeEach() {
+        faker = new Faker();
         homePage = new HomePage(page);
         page.navigate("http://www.automationpractice.pl/index.php");
 
-        // 1. wchodzimy, llikamy sign in
-        // 2. wypełniamy formularz z danymi do konta (Utworzć klase z DTO, przekazać dto)
-        // 3. sprawdź czy przeniesiono cię na stronę z danymi
     }
 
     @Test
@@ -28,7 +28,7 @@ public class CreateAnAccountTest extends BaseTest {
         CreateAnAccountPage createAnAccountPage = homePage.getTopMenuSection().clickSignInLink();
 
         createAnAccountPage.getCreateAnAccountFormSection()
-                .enterEmail("demo234567@demo.com")
+                .enterEmail(faker.internet().emailAddress())
                 .clickCreateAnAccountButton();
 
         MyAccountPage myAccountPage = createAnAccountPage.getCreateAnAccountFormSection()
@@ -41,6 +41,5 @@ public class CreateAnAccountTest extends BaseTest {
 
         assertThat(myAccountPage.getManageMyAccountSection().getAccountCreatedMessage()).isVisible();
         assertThat(myAccountPage.getManageMyAccountSection().getMyAccountLabel()).hasText("My account");
-
     }
 }
