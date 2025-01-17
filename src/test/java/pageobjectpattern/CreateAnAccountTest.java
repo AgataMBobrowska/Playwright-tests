@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import common.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pageobjectpattern.dto.CreateAnAccountDTO;
 import pageobjectpattern.pages.CreateAnAccountPage;
 import pageobjectpattern.pages.HomePage;
 import pageobjectpattern.pages.MyAccountPage;
@@ -33,10 +34,10 @@ public class CreateAnAccountTest extends BaseTest {
 
         MyAccountPage myAccountPage = createAnAccountPage.getCreateAnAccountFormSection()
                 .checkTitleMr()
-                .enterFirstName("John")
-                .enterLastName("Harrison")
-                .enterPassword("QWE09876")
-                .enterDateOfBirth("10", "2", "1998")
+                .enterFirstName(CreateAnAccountDTO.getDefaultCreateAnAccountDTO().getFirstNameText())
+                .enterLastName(CreateAnAccountDTO.getDefaultCreateAnAccountDTO().getLastNameText())
+                .enterPassword(CreateAnAccountDTO.getDefaultCreateAnAccountDTO().getPasswordText())
+                .enterDateOfBirth("9", "3", "1991")
                 .clickRegisterButton();
 
         assertThat(myAccountPage.getManageMyAccountSection().getAccountCreatedMessage()).isVisible();
