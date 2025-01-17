@@ -40,7 +40,7 @@ public class CreateAnAccountTest extends BaseTest {
                 .enterDateOfBirth("9", "3", "1991")
                 .clickRegisterButton();
 
-        assertThat(myAccountPage.getManageMyAccountSection().getAccountCreatedMessage()).isVisible();
-        assertThat(myAccountPage.getManageMyAccountSection().getMyAccountLabel()).hasText("My account");
+        assertThat(myAccountPage.getManageMyAccountSection().getLocators().accountCreatedMessage()).isVisible();
+        assertThat(myAccountPage.getManageMyAccountSection().getLocators().myAccountLabel()).hasText("My account");
     }
 }

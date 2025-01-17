@@ -9,9 +9,9 @@ import pageobjectpattern.pages.CreateAnAccountPage;
 
 public class  TopMenuSection extends BasePage {
 
-    private Locator contactUsLink;
+    private final Locator contactUsLink;
 
-    private Locator signInLink;
+    private final Locator signInLink;
 
     public TopMenuSection(Page page) {
         super(page);

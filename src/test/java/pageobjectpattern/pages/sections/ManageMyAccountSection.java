@@ -1,20 +1,17 @@
 package pageobjectpattern.pages.sections;
 
-import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.Getter;
 import pageobjectpattern.pages.BasePage;
+import pageobjectpattern.pages.locators.ManageMyAccountSectionLocators;
 
 @Getter
 public class ManageMyAccountSection extends BasePage {
 
-    private Locator accountCreatedMessage;
-
-    private Locator myAccountLabel;
+    private ManageMyAccountSectionLocators locators;
 
     public ManageMyAccountSection(Page page){
         super(page);
-        this.accountCreatedMessage = page.getByText("Your account has been created");
-        this.myAccountLabel = page.locator("h1[class=page-heading]");
+        this.locators = new ManageMyAccountSectionLocators(page);
     }
 }

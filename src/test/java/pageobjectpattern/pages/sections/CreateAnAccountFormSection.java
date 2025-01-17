@@ -2,7 +2,6 @@ package pageobjectpattern.pages.sections;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import pageobjectpattern.CreateAnAccountTest;
 import pageobjectpattern.pages.BasePage;
 import pageobjectpattern.pages.MyAccountPage;
 
