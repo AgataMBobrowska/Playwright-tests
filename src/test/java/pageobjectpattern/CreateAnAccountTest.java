@@ -36,7 +36,7 @@ public class CreateAnAccountTest extends BaseTest {
                 .enterFirstName("John")
                 .enterLastName("Harrison")
                 .enterPassword("QWE09876")
-                .enterDateOfBirth("10","08", "1976")
+                .enterDateOfBirth("10", "2", "1998")
                 .clickRegisterButton();
 
         assertThat(myAccountPage.getManageMyAccountSection().getAccountCreatedMessage()).isVisible();

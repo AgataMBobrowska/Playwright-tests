@@ -15,6 +15,6 @@ public class ManageMyAccountSection extends BasePage {
     public ManageMyAccountSection(Page page){
         super(page);
         this.accountCreatedMessage = page.getByText("Your account has been created");
-        this.myAccountLabel = page.locator("h1[class=page-heading");
+        this.myAccountLabel = page.locator("h1[class=page-heading]");
     }
 }

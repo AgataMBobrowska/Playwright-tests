@@ -2,6 +2,7 @@ package pageobjectpattern.pages.sections;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import pageobjectpattern.CreateAnAccountTest;
 import pageobjectpattern.pages.BasePage;
 import pageobjectpattern.pages.MyAccountPage;
 
@@ -28,7 +29,7 @@ public class CreateAnAccountFormSection extends BasePage {
 
     private Locator yearOfBirth;
 
- //   private Locator signUpForNewsletter;
+    private Locator signUpForNewsletter;
 
     private Locator registerButton;
 
@@ -44,7 +45,7 @@ public class CreateAnAccountFormSection extends BasePage {
         this.dayOfBirth = page.locator("#days");
         this.monthOfBirth  = page.locator("#months");
         this.yearOfBirth = page.locator("#years");
- //       this.signUpForNewsletter = page.locator("input[name='newsletter']");
+        this.signUpForNewsletter = page.locator("input[name='newsletter']");
         this.registerButton = page.locator("button[name='submitAccount']");
     }
 
