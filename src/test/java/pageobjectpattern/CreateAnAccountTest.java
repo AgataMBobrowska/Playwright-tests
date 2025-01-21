@@ -4,10 +4,11 @@ import com.github.javafaker.Faker;
 import common.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pageobjectpattern.dto.CreateAnAccountDTO;
+import pageobjectpattern.dto.CreateAccountDTO;
 import pageobjectpattern.pages.CreateAnAccountPage;
 import pageobjectpattern.pages.HomePage;
 import pageobjectpattern.pages.MyAccountPage;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class CreateAnAccountTest extends BaseTest {
@@ -34,10 +35,14 @@ public class CreateAnAccountTest extends BaseTest {
 
         MyAccountPage myAccountPage = createAnAccountPage.getCreateAnAccountFormSection()
                 .checkTitleMr()
-                .enterFirstName(CreateAnAccountDTO.getDefaultCreateAnAccountDTO().getFirstNameText())
-                .enterLastName(CreateAnAccountDTO.getDefaultCreateAnAccountDTO().getLastNameText())
-                .enterPassword(CreateAnAccountDTO.getDefaultCreateAnAccountDTO().getPasswordText())
-                .enterDateOfBirth("9", "3", "1991")
+                .enterFirstName(CreateAccountDTO.getDefaultCreateAnAccountDTO().getFirstNameText())
+                .enterLastName(CreateAccountDTO.getDefaultCreateAnAccountDTO().getLastNameText())
+                .enterPassword(CreateAccountDTO.getDefaultCreateAnAccountDTO().getPasswordText())
+                .enterDateOfBirth(
+                        CreateAccountDTO.getDefaultCreateAnAccountDTO().getBirthDate().getDayOfMonth(),
+                        CreateAccountDTO.getDefaultCreateAnAccountDTO().getBirthDate().getMonth(),
+                        CreateAccountDTO.getDefaultCreateAnAccountDTO().getBirthDate().getYear()
+                )
                 .clickRegisterButton();
 
         assertThat(myAccountPage.getManageMyAccountSection().getLocators().accountCreatedMessage()).isVisible();
