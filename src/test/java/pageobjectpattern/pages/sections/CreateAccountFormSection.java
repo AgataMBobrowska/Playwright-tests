@@ -5,8 +5,6 @@ import com.microsoft.playwright.Page;
 import pageobjectpattern.pages.BasePage;
 import pageobjectpattern.pages.MyAccountPage;
 
-import java.time.Month;
-
 
 public class CreateAccountFormSection extends BasePage {
 
