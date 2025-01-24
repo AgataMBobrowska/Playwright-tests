@@ -2,7 +2,6 @@ package pageobjectpattern.dto;
 
 import lombok.Builder;
 import lombok.Getter;
-
 import java.time.LocalDate;
 
 @Builder
@@ -23,7 +22,7 @@ public class CreateAccountDTO {
                 .firstNameText("Gary")
                 .lastNameText("Black")
                 .passwordText("1234567")
-                .birthDate(LocalDate.of(1990, 10, 3))
+                .birthDate(BirthDateDTO.getDefaultBirthdayDTO().getBirthdate())
                 .build();
     }
 }

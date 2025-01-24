@@ -8,6 +8,7 @@ import pageobjectpattern.dto.CreateAccountDTO;
 import pageobjectpattern.pages.CreateAnAccountPage;
 import pageobjectpattern.pages.HomePage;
 import pageobjectpattern.pages.MyAccountPage;
+import java.lang.String;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
@@ -40,7 +41,7 @@ public class CreateAnAccountTest extends BaseTest {
                 .enterPassword(CreateAccountDTO.getDefaultCreateAnAccountDTO().getPasswordText())
                 .enterDateOfBirth(
                         CreateAccountDTO.getDefaultCreateAnAccountDTO().getBirthDate().getDayOfMonth(),
-                        CreateAccountDTO.getDefaultCreateAnAccountDTO().getBirthDate().getMonth(),
+                        CreateAccountDTO.getDefaultCreateAnAccountDTO().getBirthDate().getMonthValue(),
                         CreateAccountDTO.getDefaultCreateAnAccountDTO().getBirthDate().getYear()
                 )
                 .clickRegisterButton();

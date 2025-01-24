@@ -5,6 +5,8 @@ import com.microsoft.playwright.Page;
 import pageobjectpattern.pages.BasePage;
 import pageobjectpattern.pages.MyAccountPage;
 
+import java.time.Month;
+
 
 public class CreateAccountFormSection extends BasePage {
 
@@ -83,10 +85,10 @@ public class CreateAccountFormSection extends BasePage {
         return this;
     }
 
-    public CreateAccountFormSection enterDateOfBirth(String day, String month, String year) {
-        dayOfBirth.selectOption(day);
-        monthOfBirth.selectOption(month);
-        yearOfBirth.selectOption(year);
+    public CreateAccountFormSection enterDateOfBirth(int day, int month, int year) {
+        dayOfBirth.selectOption(String.valueOf(day));
+        monthOfBirth.selectOption(String.valueOf(month));
+        yearOfBirth.selectOption(String.valueOf(year));
         return this;
     }
 
